@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lalita Patil - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:Poppins,sans-serif;background:#f5f5f5;color:#222;transition:.4s;line-height:1.6;}
+header{position:fixed;top:0;left:0;width:100%;padding:15px 30px;background:rgba(10,25,50,0.95);display:flex;justify-content:space-between;align-items:center;z-index:1000;border-bottom:2px solid #ff6f91;}
+header h1{color:#ff6f91;font-size:26px;}
+nav{display:flex;gap:25px;}
+nav a{color:#fff;text-decoration:none;font-weight:600;font-size:1.1rem;transition:.3s;}
+nav a:hover{color:#ffde59;}
+.toggle{display:none;cursor:pointer;font-size:28px;color:#fff;}
+#modeBtn{padding:8px 14px;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:1rem;background:#ffde59;color:#222;transition:.3s;}
+#modeBtn:hover{background:#ffc93c;}
+
+section{min-height:100vh;padding:100px 5%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+h2{margin-bottom:25px;color:#ff6f91;font-size:34px;font-weight:700;}
+
+/* Home */
+#home{flex-direction:row;text-align:left;gap:50px;}
+#home .content{flex:1;animation:fadeInLeft 1.5s;}
+#home h1{font-size:48px;font-weight:800;color:#ff6f91;margin-bottom:12px;}
+#home h3{font-size:24px;margin-bottom:18px;}
+#home p{margin-bottom:15px;font-size:17px;}
+.typing{color:#519ebc;font-weight:700;}
+.buttons{margin-top:18px;}
+#home .image{flex:1;display:flex;justify-content:center;animation:fadeInRight 1.5s;}
+#home .image img{width:300px;height:300px;border-radius:50%;border:5px solid #ff6f91;box-shadow:0 0 30px rgba(255,111,145,0.6);transition:.4s;cursor:pointer;}
+#home .image img:hover{transform:scale(1.1);box-shadow:0 0 50px #ff6f91;}
+
+/* Cards */
+.card{background:#001f3f;padding:22px;border-radius:14px;margin:15px;box-shadow:0 6px 20px rgba(0,0,0,0.4);transition:.4s;text-align:left;color:#fff;font-size:16px;}
+.card:hover{transform:translateY(-8px);background:#004080;box-shadow:0 10px 30px rgba(0,64,128,0.6);}
+.card ul{list-style-type:disc;padding-left:20px;margin-top:10px;}
+.narrow-card{max-width:700px;margin:0 auto;padding:20px;}
+.horizontal{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;align-items:stretch;}
+.horizontal .card{flex:1;min-width:280px;}
+
+.btn{display:inline-block;padding:12px 24px;margin:5px;border:none;border-radius:6px;background:#ff6f91;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+.btn:hover{background:#ff3c6d;}
+
+form input,form textarea{width:100%;padding:12px;margin-bottom:10px;border:none;border-radius:6px;font-size:16px;}
+form button{width:100%;font-size:16px;}
+
+footer{text-align:center;padding:20px;background:#001f3f;color:#fff;border-top:2px solid #ff6f91;}
+
+/* Animations */
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-50px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(50px);}to{opacity:1;transform:translateX(0);}}
+.fade-in{opacity:0;transform:translateY(40px);transition:all 1s;}
+.fade-in.show{opacity:1;transform:translateY(0);}
+
+/* Dark Mode */
+body.dark{background:#0b132b;color:#fff;}
+body.dark header{background:rgba(11,19,43,0.95);}
+body.dark nav a{color:#fff;}
+body.dark .card{background:#1c2541;color:#fff;}
+body.dark footer{background:#1c2541;color:#fff;}
+
+/* Light Mode */
+body.light{background:#f5f5f5;color:#222;}
+body.light header{background:rgba(240,240,240,0.95);}
+body.light nav a{color:#222;}
+body.light .card{background:#e6f0ff;color:#222;}
+body.light footer{background:#d9e0f0;color:#222;}
+
+/* Responsive */
+@media(max-width:768px){
+  nav{display:none;flex-direction:column;position:absolute;top:70px;right:20px;background:#001f3f;padding:15px;border-radius:8px;}
+  nav.show{display:flex;}
+  .toggle{display:block;}
+  #home{flex-direction:column;text-align:center;}
+  .horizontal{flex-direction:column;gap:15px;}
+}
+</style>
+</head>
+<body class="light">
+
+<header>
+<h1>Lalita Patil</h1>
+<div>
+  <button id="modeBtn">🌙 Dark</button>
+  <div class="toggle" onclick="toggleMenu()">☰</div>
+</div>
+<nav id="navbar">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- Home Section -->
+<section id="home">
+<div class="content">
+<h1>Lalita Patil</h1>
+<h3>I'm a <span class="typing"></span></h3>
+<p>Hello! I am a TYBCA student passionate about creating meaningful projects with programming and Artificial Intelligence.  
+I enjoy exploring new technologies and applying them to real-world solutions.  
+My goal is to develop software that can make a positive impact in people’s lives.</p>
+<div class="buttons">
+  <button class="btn" id="downloadBtn">⬇ Download Portfolio (PDF)</button>
+  <a href="https://github.com/Lalita-123" target="_blank" class="btn">🌐 GitHub</a>
+  <a href="https://www.linkedin.com/in/lalita-patil-bb3246377" target="_blank" class="btn">💼 LinkedIn</a>
+</div>
+</div>
+<div class="image">
+<img src="lalita photo.png" alt="Profile Picture">
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="fade-in">
+<h2>About Me</h2>
+<div class="card narrow-card">
+<p>I am Lalita Patil, a detail-oriented TYBCA student with a strong foundation in programming and Artificial Intelligence.  
+I have hands-on experience in developing web applications, AI-based projects, and software solutions that aim to solve real-world problems.  
+I enjoy collaborating in teams, learning new skills, and continuously improving my technical and professional abilities.  
+I am motivated to build innovative projects that can positively impact society and help me grow as a professional in the technology field.</p>
+<ul>
+<li>Certified in ExcelR and IBM Python for Data Science</li>
+<li>Completed Internship at Technohacks (Python Development)</li>
+<li>Proficient in HTML, CSS, JavaScript, Java, C, C++, Python</li>
+</ul>
+</div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="fade-in">
+  <h2>Education</h2>
+  <div class="horizontal">
+    <!-- 10th -->
+    <div class="card">
+      <h3>10th Grade 🎓</h3>
+      <p>Completed 10th grade with excellent academic performance, scoring 94.40%.  
+      Developed strong foundational skills in mathematics, science, and computer basics.  
+      This year laid the groundwork for my interest in technology and programming.</p>
+    </div>
+    <!-- 12th -->
+    <div class="card">
+      <h3>12th Grade 🎓</h3>
+      <p>Completed 12th grade with 82.17%, focusing on computer science and mathematics.  
+      Strengthened problem-solving skills and learned programming concepts.  
+      Built the foundation to pursue higher education in Computer Applications.</p>
+    </div>
+    <!-- BCA -->
+    <div class="card">
+      <h3>BCA – TYBCA 🖥️</h3>
+      <p>Currently pursuing Bachelor of Computer Applications (Third Year).  
+      Gaining advanced knowledge in programming, web development, and AI.  
+      Completing projects and internships to apply theoretical concepts practically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="fade-in">
+<h2>My Skills</h2>
+<div class="horizontal">
+<div class="card">
+<h3>💻 Technical Skills</h3>
+<p>I have expertise in web development technologies and programming languages.  
+I am skilled in creating websites, algorithms, and AI-based applications.  
+I enjoy building efficient, user-friendly solutions that can solve real-world problems.</p>
+<ul>
+<li>HTML, CSS, JavaScript</li>
+<li>Java, C, C++</li>
+<li>Python & Artificial Intelligence</li>
+</ul>
+</div>
+<div class="card">
+<h3>🌟 Soft Skills</h3>
+<p>Along with technical expertise, I focus on enhancing my soft skills.  
+I believe strong communication, teamwork, and leadership are essential for successful projects.  
+I consistently work on improving my problem-solving and critical thinking abilities.</p>
+<ul>
+<li>Teamwork, Leadership, Collaboration</li>
+<li>Problem-Solving, Critical Thinking</li>
+<li>Presentation & Communication Skills</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="fade-in">
+<h2>Projects</h2>
+<div class="horizontal">
+<div class="card">
+<h3>1. ElderMeds 🏥</h3>
+<p>ElderMeds is a medicine donation and management system designed for old age homes.  
+It helps track medicine inventory, manage donations, and streamline requests from caretakers.  
+The system ensures that elderly residents receive timely access to medicines efficiently.</p>
+</div>
+<div class="card">
+<h3>2. Sanitation Watch 🚻</h3>
+<p>This platform enables public feedback and complaints about municipal toilet facilities.  
+It ensures accountability and transparency in sanitation services.  
+Users can submit feedback, while authorities can track and resolve issues systematically.</p>
+</div>
+<div class="card">
+<h3>3. FoodHub 🍴</h3>
+<p>FoodHub is an e-commerce platform for multicultural food ordering.  
+It allows users to explore cuisines, place orders easily, and enjoy fast delivery.  
+The system emphasizes convenience and a seamless user experience.</p>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="fade-in">
+<h2>Contact Me</h2>
+<div class="card narrow-card">
+<p>If you would like to connect with me for collaboration, internships, or just to say hello,  
+please use the form below. I am open to discussing exciting projects and opportunities.</p>
+<form onsubmit="alert('Thank you! Your message has been submitted.'); return false;">
+<input type="text" placeholder="Enter your full name" required>
+<input type="email" placeholder="Enter your email address" required>
+<textarea rows="5" placeholder="Write your message here..." required></textarea>
+<button class="btn" type="submit">Send Message</button>
+</form>
+</div>
+</section>
+
+<footer>© 2025 Lalita Patil — Portfolio Website</footer>
+
+<script>
+function toggleMenu(){document.getElementById("navbar").classList.toggle("show");}
+const modeBtn=document.getElementById("modeBtn");
+modeBtn.addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+  modeBtn.textContent=document.body.classList.contains("dark")?"🌞 Light":"🌙 Dark";
+});
+const roles=["TYBCA Student","Programmer","AI Enthusiast"];
+let roleIndex=0,charIndex=0,typing=true;
+const typingSpan=document.querySelector(".typing");
+function typeEffect(){
+if(typing){if(charIndex<roles[roleIndex].length){typingSpan.textContent+=roles[roleIndex][charIndex];charIndex++;setTimeout(typeEffect,150);}
+else{typing=false;setTimeout(typeEffect,1000);}}else{if(charIndex>0){typingSpan.textContent=roles[roleIndex].substring(0,charIndex-1);charIndex--;setTimeout(typeEffect,80);}
+else{typing=true;roleIndex=(roleIndex+1)%roles.length;setTimeout(typeEffect,200);}}
+}
+typeEffect();
+
+const faders=document.querySelectorAll('.fade-in');
+window.addEventListener('scroll',()=>{faders.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-100) el.classList.add('show');});});
+
+document.getElementById('downloadBtn').addEventListener('click',()=>{
+if(!window.jspdf){const s=document.createElement('script');s.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";s.onload=downloadPDF;document.head.appendChild(s);}else{downloadPDF();}});
+function downloadPDF(){const {jsPDF}=window.jspdf;const doc=new jsPDF();doc.setFont("helvetica","bold");doc.setFontSize(18);doc.text("Lalita Patil - Portfolio",20,20);doc.setFont("helvetica","normal");doc.setFontSize(12);
+doc.text("TYBCA Student passionate about programming, AI and problem-solving.",20,40);doc.text("Technical Skills:",20,60);doc.text("- HTML, CSS, JavaScript",30,75);doc.text("- Java, C, C++",30,90);doc.text("- Python & Artificial Intelligence",30,105);
+doc.text("Soft Skills:",20,125);doc.text("- Teamwork, Problem-Solving, Leadership",30,140);doc.text("- Critical Thinking, Presentation, Professional Development",30,155);doc.text("Education:",20,175);doc.text("- BCA, Third Year",30,190);
+doc.text("Projects:",20,210);doc.text("1. ElderMeds - Medicine donation & management system",30,225);doc.text("2. Sanitation Watch - Public toilet feedback",30,240);doc.text("3. FoodHub - Food ordering platform",30,255);doc.save("Lalita-Portfolio.pdf");}
+</script>
+</body>
+</html>
